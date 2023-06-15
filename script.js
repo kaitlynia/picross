@@ -53,12 +53,13 @@ window.addEventListener('DOMContentLoaded', event => {
     }
   }
 
-  const evaluateColumnGuides = () => {
+  const regenerateRowGuides = () => {
     let i = 0;
     let connected = false
     let currentTotal = 0
 
     for (let columnGuide of columnGuides.children) {
+      columnGuide.innerHTML = ''
       for (let j = i; j < gridNumberOfCells; j = j + gridWidth) {
         if (cells[j]) {
           currentTotal = currentTotal + 1
@@ -84,12 +85,13 @@ window.addEventListener('DOMContentLoaded', event => {
     }
   }
 
-  const evaluateRowGuides = () => {
+  const regenerateColumnGuides = () => {
     let i = 0;
     let connected = false
     let currentTotal = 0
 
     for (let rowGuide of rowGuides.children) {
+      rowGuide.innerHTML = ''
       for (let j = i; j < i + gridWidth; j = j + 1) {
         if (cells[j]) {
           currentTotal = currentTotal + 1
@@ -119,8 +121,8 @@ window.addEventListener('DOMContentLoaded', event => {
     emptyCellsArray()
     populateCellsArray()
     clearGridCells()
-    evaluateColumnGuides()
-    evaluateRowGuides()
+    regenerateColumnGuides()
+    regenerateRowGuides()
   }
 
   const startTimer = () => {
@@ -224,6 +226,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
   newGameButton.addEventListener('click', event => {
     hide(newGameButton)
+    hide(solvedText)
     hide(title)
     regenerateBoard()
     show(timer)
