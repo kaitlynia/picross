@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  padding-bottom: 5rem;
+}
+
+#body {
+  font-family: sans-serif;
+  height: 100vh;
+  overflow-y: hidden;
+  margin: 0;
+  user-select: none;
+}
+
+h1, h2 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: max(32px, 3vw);
+}
+
+p, button {
+  font-size: 16px;
+}
+
+button {
+  border: 2px solid black;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  font-size: 24px;
+  margin: auto;
+  padding: 12px 32px;
+}
+
+/* button:active {
+  background: #ffc;
+} */
+
+.hidden {
+  display: none !important;
+}
+
+.game-container {
+  padding-right: 64px;
+  margin: auto;
+  width: max-content;
+}
+
+#wrapper {
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+#new-game {
+  margin-top: 2rem;
+}
+
+#timer {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+}
+
+#column-guides {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 64px;
+  margin-bottom: 4px;
+}
+
+#column-guides > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 22px;
+  width: max(21px, 2vw);
+}
+
+#column-guides b {
+  display: inline-block;
+}
+
+#game-row {
+  display: flex;
+}
+
+#row-guides {
+  display: flex;
+  flex-direction: column;
+}
+
+#row-guides > * {
+  display: flex;
+  justify-content: flex-end;
+  height: max(21px, 2vw);
+  line-height: max(21px, 2vw);
+  width: 64px;
+}
+
+#row-guides b {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+#grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: max(315px, 30vw);
+}
+
+#grid > * {
+  border: 2px solid black;
+  border-bottom-width: 0;
+  border-right-width: 0;
+  height: max(21px, 2vw);
+  width: max(21px, 2vw);
+}
+
+#grid > *.filled {
+  background-color: #7df;
+}
+
+#grid > *.crossed {
+  background-color: #aaa;
+}
+
+#grid > *:nth-child(5n) {
+  border-right-width: 2px;
+}
+
+#grid > *:nth-child(n+61):nth-child(-n+75),
+#grid > *:nth-child(n+136):nth-child(-n+150),
+#grid > *:nth-child(n+211) {
+  border-bottom-width: 2px;
+}
+
+#solved {
+  font-size: max(32px, 3vw);
+  width: max-content;
+  margin: auto;
+}
